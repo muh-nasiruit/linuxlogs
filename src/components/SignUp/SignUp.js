@@ -40,8 +40,8 @@ const SignUp = () => {
     })
 
     const signUp = () => {
-        // const myUrl = 'http://172.104.174.187:4054/api/linux-logs';
-        const myUrl = 'http://localhost:4054/api/linux-logs';
+        const myUrl = 'http://172.104.174.187:4054/api/linux-logs';
+        // const myUrl = 'http://localhost:4054/api/linux-logs';
         axios.post(myUrl, formik?.values)
             .then((response) => {
                 successToast("API Successful");
