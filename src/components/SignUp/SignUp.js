@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import SignUpCSS from "./SignUp.module.css";
 import img1 from "../../assets/add-user.png";
 import axios from 'axios';
@@ -23,7 +23,10 @@ const SignUp = () => {
     const [data, setData] = useState(null);
     const [lines, setLines] = useState([]);
     // const navigate = useNavigate();
-    listenerData(setLines)
+    useEffect(() => {
+        listenerData(setLines)
+    })
+    
 
 
     const formik = useFormik({
