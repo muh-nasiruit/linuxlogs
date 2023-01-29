@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.users-container {
+    display: flex;
+    height: 100vh;
+}
+.header{
+    height: 80px;
+    border: 2px solid  gray;
+    display: flex;
+    margin-left: 20%;
+    align-items: center;
+    justify-content: space-between;    
+    padding: 0 66px 0 21px;
+}
+.search-box{
+    width: 588px;
+}
+.search-box input{
+    height: 38px;
+    width: 390px;
+    border-radius: 7px;
+    border: none;
+    background-color:#e3e1e170; 
+    border-color:#e3e1e170 ;
+}
+.add-btn-and-icn{
+    height: 49px;
+    display: flex;
+    align-items: center;
+    width: 276px;
+    justify-content: space-around;
+}
+.add-btn-and-icn button , a{
+    height: 42px;
+    width: 183px;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+}
+.add-btn-and-icn img{
+    height: 31px;
+    width: 29px;
+}
+.burger{
+    width: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+       /* SIDEBAR */
+       .sidebar {
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        background-color:purple;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    .sidebar a {
+        text-decoration: none;
+        font-size: 17px;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+        padding: 19px 24px;
+        width: 236px;
+    }
+    .sidebar span{
+        font-size: 24px;
+        position: absolute;
+        top: 24px;
+        color: #fff;
+        margin: 5px 8px;
+        font-weight: bolder;
+        white-space: nowrap;
+    }
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+    .sidebar .closebtn {
+        position: absolute;
+        top: 11px;
+        /* right: 200px; */
+        font-size: 18px;
+        margin-left: 200px;
+        font-family: monospace;
+        background-color: transparent;
+    }
+
+.links{
+    margin-top: 30px;
+}
+.links ul li{
+    height: 47px;
+    list-style-type: none;
+}
+.links ul li a{
+    color: #fff
+}
+
+.data-logs {
+    display: flex;
+    flex-direction: column;
+}
+.charts{
+    display: flex;
+    justify-content: flex-end;
+}
