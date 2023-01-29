@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SignupValidationSchema } from "../Validations/Validations";
 // import { useEffect } from "react";
 // import Button from 'react-bootstrap/Button';
+import {emitData} from "../../socket";
 
 const ErrorToast = (msg) => {
     toast.error(msg);
@@ -39,6 +40,7 @@ const SignUp = () => {
                 successToast("API Successful");
                 // navigate("/login");
                 setData(response.data);
+                emitData("Request Logs");
             })
             .catch((error) => {
                 console.log(error);
