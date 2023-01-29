@@ -13,11 +13,13 @@ export const emitData = (data) => {
 
 //Event listeners.
 
+export const listenerData = (lines) => {
   socket.on("linux-logs",(d) => {
-    // const {a, b} = d;
+    const {lineData} = d;
     console.log('listened data-logs event');
-    // lines(b)
     // const myDiv = document.getElementById("data").innerHTML
     // document.getElementById("data").innerHTML = myDiv + a;
+    lines(oldArr => [...oldArr, lineData])
   })
+}
 

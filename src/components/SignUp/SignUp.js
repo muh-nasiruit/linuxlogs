@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SignupValidationSchema } from "../Validations/Validations";
 // import { useEffect } from "react";
 // import Button from 'react-bootstrap/Button';
-import {emitData} from "../../socket";
+import {emitData, listenerData} from "../../socket";
 
 const ErrorToast = (msg) => {
     toast.error(msg);
@@ -21,7 +21,11 @@ const successToast = (msg) => {
 const SignUp = () => {
 
     const [data, setData] = useState(null);
+    const [lines, setLines] = useState([]);
     // const navigate = useNavigate();
+    listenerData(setLines)
+
+
     const formik = useFormik({
         initialValues: {
             userName: "",
@@ -130,7 +134,11 @@ const SignUp = () => {
             <div className={SignUpCSS["main-container"]}>
                 <div className={SignUpCSS["sign-up-container"]}>
                     <div className={SignUpCSS["output-card"]}>
-                    {data}
+                    <div>
+                    {lines.map((item, index) => (
+                        <div key={index}>{item}</div>
+                    ))}
+                    </div>
                     </div>
                     
                     </div>
