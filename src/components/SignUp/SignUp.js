@@ -40,8 +40,8 @@ const SignUp = () => {
     })
 
     const signUp = () => {
-        const myUrl = 'http://172.104.174.187:4054/api/linux-logs';
-        // const myUrl = 'http://localhost:4054/api/linux-logs';
+        // const myUrl = 'http://172.104.174.187:4054/api/linux-logs';
+        const myUrl = 'http://localhost:4054/api/linux-logs';
         axios.post(myUrl, formik?.values)
             .then((response) => {
                 successToast("API Successful");
@@ -60,7 +60,7 @@ const SignUp = () => {
             <div className={SignUpCSS["sign-up-container"]}>
                 <div className={SignUpCSS["sign-up-title"]}>
                     <img src={img1} alt="" />
-                    <span>Sign up</span>
+                    <span>Connector</span>
                 </div>
                 <form className={SignUpCSS["signup-form"]}>
                     <div className={SignUpCSS["resizing-input-fields"]}>
@@ -123,7 +123,7 @@ const SignUp = () => {
                     <div className={SignUpCSS["signup-btn"]}>
                         <input type="button"
                             style={{ opacity: formik.isValid ? 1 : 0.7 }}
-                            disabled={!formik.isValid} name="" value="Sign up" onClick={() => signUp()} />
+                            disabled={!formik.isValid} name="" value="Connect" onClick={() => signUp()} />
                     </div>
                     <div className={SignUpCSS["back-to-login"]}>
                     {/* <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button>  */}
@@ -135,15 +135,12 @@ const SignUp = () => {
         {
             data &&
             <div className={SignUpCSS["main-container"]}>
-                <div className={SignUpCSS["sign-up-container"]}>
                     <div className={SignUpCSS["output-card"]}>
-                    <div>
+                    <h2>Data Recieved:</h2>
+                    <p></p>
                     {lines.map((item, index) => (
                         <div key={index}>{item}</div>
                     ))}
-                    </div>
-                    </div>
-                    
                     </div>
             </div>
         }

@@ -14,9 +14,12 @@
     background-color: white;
     padding: 20px;
     margin-top: 20px;
-    border-radius: 12px;
+    border: 2px solid #8b8b8b;
+    border-radius: 8px;
     height: 250px;
-    overflow: auto;
+    white-space: nowrap;
+    width: 600px;
+    overflow-x: auto;
 
   }
 
@@ -26,11 +29,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* overflow: auto; */
 }
 .sign-up-container{
     width: 450px;
+    /* width: 100%; */
     border: 2px solid #8b8b8b;
     border-radius: 8px;
+    overflow: auto;
 }
 .sign-up-title{
     /* border: 1px solid; */
