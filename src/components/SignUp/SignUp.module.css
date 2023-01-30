@@ -46,8 +46,8 @@
     justify-content: center;
 }
 .sign-up-title img{
-    height: 37px;
-    width: 37px;
+    height: 55px;
+    width: 60px;
 }
 .sign-up-title span{
     font-size: 32px;
@@ -84,8 +84,8 @@
     margin-top: 33px;
 }
 .signup-btn input{
-    color: #fff;
-    background-color: purple;
+    color: rgb(0, 0, 0);
+    background-color: #f6b107;
     height: 35px;
     border: none;
     border-radius: 6px;

@@ -1,15 +1,11 @@
 import {useState, useEffect} from 'react';
 import SignUpCSS from "./SignUp.module.css";
-import img1 from "../../assets/add-user.png";
+import img1 from "../../assets/pengu.png";
 import axios from 'axios';
 import { useFormik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
-// import { useNavigate } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
-import { SignupValidationSchema } from "../Validations/Validations";
-// import { useEffect } from "react";
-// import Button from 'react-bootstrap/Button';
 import {emitData, listenerData} from "../../socket";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ErrorToast = (msg) => {
     toast.error(msg);
@@ -26,17 +22,14 @@ const SignUp = () => {
     useEffect(() => {
         listenerData(setLines)
     },[])
-    
-
 
     const formik = useFormik({
         initialValues: {
-            userName: "",
-            email: "",
+            user: "",
+            ipAdd: "",
             passWord: "",
-            confirmPassword: ""
-        },
-        validationSchema: SignupValidationSchema
+            pathSys: ""
+        }
     })
 
     const signUp = () => {
@@ -64,31 +57,25 @@ const SignUp = () => {
                 </div>
                 <form className={SignUpCSS["signup-form"]}>
                     <div className={SignUpCSS["resizing-input-fields"]}>
-                        <label for="">Email</label>
+                        <label for="">User</label>
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formik.values.email}
+                            type="text"
+                            id="user"
+                            name="user"
+                            value={formik.values.user}
                             onChange={formik?.handleChange}
                             onBlur={formik.handleBlur}
                         />
-                        {formik.touched.email && formik.errors.email ? (
-                            <span className={SignUpCSS["error-message"]} >{formik.errors.email}</span>
-                        ) : null}
                     </div>
                     <div className={SignUpCSS["resizing-input-fields"]}>
-                        <label for="" >Username</label>
+                        <label for="" >IP Address</label>
                         <input type="text"
-                            id="userName"
-                            name="userName"
-                            value={formik.values.userName}
+                            id="ipAdd"
+                            name="ipAdd"
+                            value={formik.values.ipAdd}
                             onChange={formik?.handleChange}
                             onBlur={formik.handleBlur}
                         />
-                        {formik.touched.userName && formik.errors.userName ? (
-                            <span className={SignUpCSS["error-message"]} >{formik.errors.userName}</span>
-                        ) : null}
                     </div>
 
                     <div className={SignUpCSS["resizing-input-fields"]}>
@@ -100,30 +87,20 @@ const SignUp = () => {
                             onChange={formik?.handleChange}
                             onBlur={formik.handleBlur}
                         />
-                        {formik.touched.passWord && formik.errors.passWord ? (
-                            <span className={SignUpCSS["error-message"]} >{formik.errors.passWord}</span>
-                        ) : null}
                     </div>
                     <div className={SignUpCSS["resizing-input-fields"]}>
-                        <label for="">Confirm Password</label>
-                        <input type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            value={formik.values.confirmPassword}
+                        <label for="">Path</label>
+                        <input
+                            type="text"
+                            id="pathSys"
+                            name="pathSys"
+                            value={formik.values.pathSys}
                             onChange={formik?.handleChange}
                             onBlur={formik.handleBlur}
                         />
-                        {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-                            <span className={SignUpCSS["error-message"]} >{formik.errors.confirmPassword}</span>
-                        ) : null}
                     </div>
-                    <div className={SignUpCSS.checkbox}>
-                        <input type="checkbox" />  Accept terms and conditions
-                </div>
                     <div className={SignUpCSS["signup-btn"]}>
-                        <input type="button"
-                            style={{ opacity: formik.isValid ? 1 : 0.7 }}
-                            disabled={!formik.isValid} name="" value="Connect" onClick={() => signUp()} />
+                        <input type="button" name="" value="Connect" onClick={() => signUp()} />
                     </div>
                     <div className={SignUpCSS["back-to-login"]}>
                     {/* <Button variant="link" onClick={()=>navigate("/")}>Back to Main</Button>  */}
