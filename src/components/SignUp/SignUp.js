@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import SignUpCSS from "./SignUp.module.css";
 import img1 from "../../assets/pengu.png";
 import axios from 'axios';
@@ -18,8 +18,11 @@ const SignUp = () => {
 
     const [data, setData] = useState(null);
     const [lines, setLines] = useState([]);
+    const dataFetchedRef = useRef(false);
     // const navigate = useNavigate();
     useEffect(() => {
+        if (dataFetchedRef.current) return;
+        dataFetchedRef.current = true;
         listenerData(setLines)
     },[])
 
@@ -41,6 +44,7 @@ const SignUp = () => {
                 // navigate("/login");
                 setData(response.data);
                 emitData("Request Logs");
+                // console.log('here')
             })
             .catch((error) => {
                 console.log(error);
