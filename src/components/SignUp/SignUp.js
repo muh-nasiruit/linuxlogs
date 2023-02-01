@@ -23,9 +23,9 @@ const SignUp = () => {
     useEffect(() => {
         // if (dataFetchedRef.current) return;
         // dataFetchedRef.current = true;
-        return () => {
-            listenerData(setLines)
-          }
+        listenerData(setLines)
+        // return () => {
+        //   }
     },[])
 
     const formik = useFormik({
