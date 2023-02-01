@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import SignUpCSS from "./SignUp.module.css";
 import img1 from "../../assets/pengu.png";
 import axios from 'axios';
@@ -18,12 +18,14 @@ const SignUp = () => {
 
     const [data, setData] = useState(null);
     const [lines, setLines] = useState([]);
-    const dataFetchedRef = useRef(false);
+    // const dataFetchedRef = useRef(false);
     // const navigate = useNavigate();
     useEffect(() => {
-        if (dataFetchedRef.current) return;
-        dataFetchedRef.current = true;
-        listenerData(setLines)
+        // if (dataFetchedRef.current) return;
+        // dataFetchedRef.current = true;
+        return () => {
+            listenerData(setLines)
+          }
     },[])
 
     const formik = useFormik({
