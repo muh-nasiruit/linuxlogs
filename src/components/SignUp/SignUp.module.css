@@ -7,21 +7,69 @@
 
 .super-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
   .output-card {
-    background-color: white;
+    background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  height: 80vh;
+  margin: 30px;
+  overflow: auto;
+  padding: 2rem;
+  color: white;
+  font: 1.3rem Inconsolata, monospace;
+  text-shadow: 0 0 5px #C8C8C8;
+  box-shadow: -0 0 40px #000000;
+  }
+  .output-card::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+.output-card::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #FFF;
+	background-image: -webkit-gradient(linear,
+									   40% 0%,
+									   75% 84%,
+									   from(#4D9C41),
+									   to(#19911D),
+									   color-stop(.6,#54DE5D))
+}
+::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(black, 0.15),
+      rgba(black, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+}
+::selection {
+    background: #ff0000;
+    text-shadow: none;
+  }
+  pre {
+    margin: 0;
+  }
+    /* background-color: white;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     border: 2px solid #8b8b8b;
     border-radius: 8px;
     height: 250px;
     white-space: nowrap;
     width: 600px;
-    overflow-x: auto;
-
-  }
+    overflow-x: auto; */
 
 .main-container{
     height: 100vh;
@@ -29,14 +77,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* overflow: auto; */
+    background-color: #ccccccd4;
+    overflow: auto;
 }
 .sign-up-container{
     width: 450px;
     /* width: 100%; */
+    background-color: #FFFFFF;
     border: 2px solid #8b8b8b;
     border-radius: 8px;
-    overflow: auto;
+    /* overflow: auto; */
 }
 .sign-up-title{
     /* border: 1px solid; */
